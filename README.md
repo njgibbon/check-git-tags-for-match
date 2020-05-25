@@ -16,12 +16,12 @@ Check all git tags for a match. Scripts and illustration.
 2) Some learning of things I always forget and need to look-up.
 3) Why not?
 ## HLRs
-• Output whether a given git tag exists in a repository or not.
-• Implement validation checks and error handling.
+• Output whether a given git tag exists in a repository or not.  
+• Implement validation checks and error handling.  
 ## NFRS
-• A requirement means a test / tests.
-• Lightweight, fairly portable.
-• Good documentation.
+• A requirement means a test / tests.  
+• Lightweight, fairly portable.  
+• Good documentation.  
 ## Design
 TODO
 
@@ -157,11 +157,14 @@ usage: git check-ref-format [--normalize] [<options>] <refname>
 The input argument is not a valid git tag. See: https://git-scm.com/docs/git-check-ref-format. Exiting.
 1
 ```
+### Non-Functional
+TODO
 
 # TODO
 * Complete design section on some decisions made to fulfill requirements.
 * Add NFR test section and results.
 * Analyse the short script version and state what you gain and lose from it.
+* Little project write up.
 
 # Improvements
 * Help / Usage documentation inside the script.
