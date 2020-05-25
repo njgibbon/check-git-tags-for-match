@@ -4,17 +4,26 @@ Check all git tags for a match. Scripts and illustration.
 # Contents
 - [check-git-tags-for-match](#check-git-tags-for-match)
 - [Contents](#contents)
-- [Analysis & Design](#analysis-&-design)
+- [Analysis and Design](#analysis-and-design)
 - [Scripts](#scripts)
 - [Testing](#testing)
 - [TODO](#todo)
 - [Improvements](#improvements)
 
-# Analysis & Design
+# Analysis and Design
 ## Why?
 1) The exact logic or components therein can be useful in various automation / build & deploy / glue scenarios. 
 2) Some learning of things I always forget and need to look-up.
 3) Why not?
+## HLRs
+• Output whether a given git tag exists in a repository or not.
+• Implement validation checks and error handling.
+## NFRS
+• A requirement means a test / tests.
+• Lightweight, fairly portable.
+• Good documentation.
+## Design
+TODO
 
 # Scripts
 `scripts/`
@@ -150,11 +159,9 @@ The input argument is not a valid git tag. See: https://git-scm.com/docs/git-che
 ```
 
 # TODO
-* Consider split out readme markdown into other docs if gets too big.
-* Write in Contents page and structure all hierarchically. 
-* Think about analysis/design section and any NFR testing?
+* Complete design section on some decisions made to fulfill requirements.
+* Add NFR test section and results.
 * Analyse the short script version and state what you gain and lose from it.
-* Write up as little mini project?
 
 # Improvements
 * Help / Usage documentation inside the script.
