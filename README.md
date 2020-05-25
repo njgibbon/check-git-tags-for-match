@@ -2,7 +2,7 @@
 Check all git tags for a match. Scripts and illustration.
 
 # Contents
-- [check-git-tags-for-match](#heck-git-tags-for-match)
+- [check-git-tags-for-match](#check-git-tags-for-match)
 - [Contents](#contents)
 - [Main Script](#main-script)
 - [Alt Script](#alt-script)
@@ -10,7 +10,7 @@ Check all git tags for a match. Scripts and illustration.
 - [Improvements](#improvements)
 
 # Main Script
-
+`check_git_tags_for_match.sh`  
 ## Description
 This script can be used to check if a given git tag already exists in any git repository.
 
@@ -142,7 +142,8 @@ The input argument is not a valid git tag. See: https://git-scm.com/docs/git-che
 1
 ```
 
-# check_git_tags_for_match_alt.sh
+# Alt Script
+`check_git_tags_for_match_alt.sh`  
 A minimal implementation which does (approximately) the same thing in 5 lines. But ofcourse, there are trade-offs...
 
 # TODO
