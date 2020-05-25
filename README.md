@@ -43,6 +43,7 @@ sh check_git_tags_for_match.sh <git-tag>
 
 # Expect useful output. But use exit codes as defined above to make further decisions:
 # See usage.sh for minimal automated usage implementation.
+# And see the 'Tests' section for some specific examples.
 ```
 
 ## Tests
@@ -75,7 +76,22 @@ v1.0.0
 ```
 
 ### Cases
+*More test inputs to be exercised but only one / a few examples to be documented here.*  
+**Functional - Positive:**  
 * A valid tag input already on the repository returns exit code 3 and a useful message. 
+```
+# 0 
+$ sh check_git_tags_for_match.sh hello && echo $?
+This tag does not already exist in this repository. Success.
+0
+
+# 1
+$ sh check_git_tags_for_match.sh v2.0.0 && echo $?
+This tag does not already exist in this repository. Success.
+0
+
+```
+**Functional - Negative:**  
 * A valid tag input not already on the repository returns exit code 0 and a useful message.
 * Running without an input argument is caught out with a useful message.
 * Running with a empty string input argument is caught out with a useful message.
