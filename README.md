@@ -78,7 +78,7 @@ v1.0.0
 ### Cases
 *More test inputs to be exercised but only one / a few examples to be documented here.*  
 **Functional - Positive:**  
-* A valid tag input already on the repository returns exit code 3 and a useful message. 
+* A valid tag input already on the repository returns exit code 3 and a useful message. ✅
 ```
 # 0 
 $ sh check_git_tags_for_match.sh hello && echo $?
