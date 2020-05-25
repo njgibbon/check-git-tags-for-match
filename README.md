@@ -4,31 +4,26 @@ Check all git tags for a match. Scripts and illustration.
 # Contents
 - [check-git-tags-for-match](#check-git-tags-for-match)
 - [Contents](#contents)
-- [Main Script](#main-script)
-- [Alt Script](#alt-script)
+- [Analysis & Design](#analysis-&-design)
+- [Scripts](#scripts)
+- [Testing](#testing)
 - [TODO](#todo)
 - [Improvements](#improvements)
 
-# Main Script
-`check_git_tags_for_match.sh`  
-## Description
-This script can be used to check if a given git tag already exists in any git repository.
-
+# Analysis & Design
 ## Why?
 1) The exact logic or components therein can be useful in various automation / build & deploy / glue scenarios. 
 2) Some learning of things I always forget and need to look-up.
-3) As always; Why not?
+3) Why not?
 
-## Outputs
-**Exit code 0** - The search ran but that tag does not exist in the repository.   
-**Exit code 3** - The search ran and found that the tag already exists in the repository.  
-**Exit code 1** - A failure occured, likely because of input validation.  
+# Scripts
+`scripts/`
 
 ## Prerequisites
 ```
 # Download the script.
 # Change directory to this (or any other) git repository.
-cd check-git-tags-match
+cd check-git-tags-match/scripts/
 
 # Ensure you can run the following:
 # Expect tags output (if any) and 0 exit code.
@@ -43,23 +38,35 @@ chmod +x check_git_tags_for_match.sh
 * Requires git client installed.
 * POSIXy environment.
 
+## Main script
+`check_git_tags_for_match.sh`  
+This script can be used to check if a given git tag already exists in any git repository.  
 
-## Usage
+### Outputs
+**Exit code 0** - The search ran but that tag does not exist in the repository.   
+**Exit code 3** - The search ran and found that the tag already exists in the repository.  
+**Exit code 1** - A failure occured, likely because of input validation.  
+
+### Usage
 ```
 # Execute the script where <git-tag> is the tag you are searching for.
 sh check_git_tags_for_match.sh <git-tag>
 
 # Expect useful output. But use exit codes as defined above to make further decisions:
 # See usage.sh for minimal automated usage implementation.
-# And see the 'Tests' section for some specific examples.
+# And see the 'Testing' section for some specific examples.
 ```
 
-## Tests
+## Alt Script
+`check_git_tags_for_match_alt.sh`  
+A minimal implementation which does (approximately) the same thing in 5 lines. But ofcourse, there are trade-offs...
 
-### Environment
+# Testing
+
+## Environment
 This repository has been gerry-rigged as a test environment for the script. It has been set up with a load of dummy taggs which represent different "versions".
 
-### List tags
+## List tags
 GitHub Website > This Repository > Releases.  
 GitHub Website > Branch dropdown > Tags tab.
 ```
@@ -83,10 +90,10 @@ v0.3.2
 v1.0.0
 ```
 
-### Cases
+## Cases
 *More test inputs to be exercised but only one / a few examples to be documented here.*  
-#### Functional
-##### Positive
+### Functional
+#### Positive
 * A valid tag input not already on the repository returns exit code 0 and a useful message. ✅
 ```
 $ sh check_git_tags_for_match.sh hello && echo $?
@@ -96,7 +103,7 @@ $ sh check_git_tags_for_match.sh v2.0.0 && echo $?
 This tag does not already exist in this repository. Success.
 0
 ```
-##### Negative 
+#### Negative 
 * A valid tag input already on the repository returns exit code 3 and a useful message. ✅
 ```
 $ sh check_git_tags_for_match.sh v0.1.0 ; echo $?
@@ -141,10 +148,6 @@ usage: git check-ref-format [--normalize] [<options>] <refname>
 The input argument is not a valid git tag. See: https://git-scm.com/docs/git-check-ref-format. Exiting.
 1
 ```
-
-# Alt Script
-`check_git_tags_for_match_alt.sh`  
-A minimal implementation which does (approximately) the same thing in 5 lines. But ofcourse, there are trade-offs...
 
 # TODO
 * Consider split out readme markdown into other docs if gets too big.
