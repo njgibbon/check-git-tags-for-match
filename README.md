@@ -77,8 +77,9 @@ v1.0.0
 
 ### Cases
 *More test inputs to be exercised but only one / a few examples to be documented here.*  
-**Functional - Positive:**  
-* A valid tag input already on the repository returns exit code 3 and a useful message. ✅
+#### Functional
+##### Positive
+* A valid tag input not already on the repository returns exit code 0 and a useful message. ✅
 ```
 # 0 
 $ sh check_git_tags_for_match.sh hello && echo $?
@@ -91,19 +92,36 @@ This tag does not already exist in this repository. Success.
 0
 
 ```
-**Functional - Negative:**  
-* A valid tag input not already on the repository returns exit code 0 and a useful message.
+##### Negative 
+* A valid tag input already on the repository returns exit code 3 and a useful message. ✅
+```
+# 0
+$ sh check_git_tags_for_match.sh v0.1.0
+This tag already exists in this repository. Exiting.
+$ echo $?
+3
+
+# 1
+$ sh check_git_tags_for_match.sh v1.0.0
+This tag already exists in this repository. Exiting.
+$ echo $?
+3
+```
 * Running without an input argument is caught out with a useful message.
 * Running with a empty string input argument is caught out with a useful message.
 * Running with a whitespace string input argument is caught out with a useful message.
 * Running with some invalid GitHub tag inputs are caught out with a useful message.
 
-
-## Design
-TODO
-
 # check_git_tags_for_match_alt.sh
 A minimal implementation which does (approximately) the same thing in 5 lines. But ofcourse, there are trade-offs...
+
+# TODO
+* Complete functional test section.
+* Consider split out readme markdown into other docs if gets too big.
+* Write in Contents page and structure all hierarchically. 
+* Think about analysis/design section and any NFR testing?
+* Analyse the short script version and state what you gain and lose from it.
+* Write up as little mini project?
 
 # Improvements
 * Help / Usage documentation inside the script.
