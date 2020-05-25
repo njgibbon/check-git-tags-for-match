@@ -81,42 +81,63 @@ v1.0.0
 ##### Positive
 * A valid tag input not already on the repository returns exit code 0 and a useful message. ✅
 ```
-# 0 
 $ sh check_git_tags_for_match.sh hello && echo $?
 This tag does not already exist in this repository. Success.
 0
-
-# 1
 $ sh check_git_tags_for_match.sh v2.0.0 && echo $?
 This tag does not already exist in this repository. Success.
 0
-
 ```
 ##### Negative 
 * A valid tag input already on the repository returns exit code 3 and a useful message. ✅
 ```
-# 0
-$ sh check_git_tags_for_match.sh v0.1.0
+$ sh check_git_tags_for_match.sh v0.1.0 ; echo $?
 This tag already exists in this repository. Exiting.
-$ echo $?
 3
-
-# 1
-$ sh check_git_tags_for_match.sh v1.0.0
+$ sh check_git_tags_for_match.sh v1.0.0 ; echo $?
 This tag already exists in this repository. Exiting.
-$ echo $?
 3
 ```
-* Running without an input argument is caught out with a useful message.
-* Running with a empty string input argument is caught out with a useful message.
-* Running with a whitespace string input argument is caught out with a useful message.
-* Running with some invalid GitHub tag inputs are caught out with a useful message.
+* Running without an input argument is caught out with a useful message. ✅
+```
+$ sh check_git_tags_for_match.sh ; echo $?
+This script requires an argument input to search for a match over the git tags. No valid argument found. Exiting.
+1
+```
+* Running with a empty string input argument is caught out with a useful message. ✅
+```
+$ sh check_git_tags_for_match.sh "" ; echo $?
+This script requires an argument input to search for a match over the git tags. No valid argument found. Exiting.
+1
+```
+* Running with a whitespace string input argument is caught out with a useful message. ✅
+```
+$ sh check_git_tags_for_match.sh "      " ; echo $?
+The input argument is not a valid git tag. See: https://git-scm.com/docs/git-check-ref-format. Exiting.
+1
+```
+* Running with some invalid GitHub tag inputs are caught out with a useful message. ✅
+```
+$ sh check_git_tags_for_match.sh "hello." ; echo $?
+The input argument is not a valid git tag. See: https://git-scm.com/docs/git-check-ref-format. Exiting.
+1
+$ sh check_git_tags_for_match.sh "[[" ; echo $?
+The input argument is not a valid git tag. See: https://git-scm.com/docs/git-check-ref-format. Exiting.
+1
+$ sh check_git_tags_for_match.sh "hi\there" ; echo $?
+The input argument is not a valid git tag. See: https://git-scm.com/docs/git-check-ref-format. Exiting.
+1
+$ sh check_git_tags_for_match.sh "   i   i  " ; echo $?
+usage: git check-ref-format [--normalize] [<options>] <refname>
+   or: git check-ref-format --branch <branchname-shorthand>
+The input argument is not a valid git tag. See: https://git-scm.com/docs/git-check-ref-format. Exiting.
+1
+```
 
 # check_git_tags_for_match_alt.sh
 A minimal implementation which does (approximately) the same thing in 5 lines. But ofcourse, there are trade-offs...
 
 # TODO
-* Complete functional test section.
 * Consider split out readme markdown into other docs if gets too big.
 * Write in Contents page and structure all hierarchically. 
 * Think about analysis/design section and any NFR testing?
