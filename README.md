@@ -75,7 +75,12 @@ v1.0.0
 ```
 
 ### Cases
-TODO
+* A valid tag input already on the repository returns exit code 3 and a useful message. 
+* A valid tag input not already on the repository returns exit code 0 and a useful message.
+* Running without an input argument is caught out with a useful message.
+* Running with a empty string input argument is caught out with a useful message.
+* Running with a whitespace string input argument is caught out with a useful message.
+* Running with some invalid GitHub tag inputs are caught out with a useful message.
 
 
 ## Design
@@ -88,5 +93,6 @@ A minimal implementation which does (approximately) the same thing in 5 lines. B
 * Help / Usage documentation inside the script.
 * Ability to pass in location of the git project so that the runner does not need to be within the project directory to use the script: https://git-scm.com/docs/git#Documentation/git.txt---git-dirltpathgt.
 * Use flags to pass in args more clearly.
+* Automate the easily automatable tests.
 
 
