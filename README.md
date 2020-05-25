@@ -1,6 +1,12 @@
 # check-git-tags-for-match
 Check all git tags for a match. Scripts and illustration.
 
+# Contents
+- [Heading](#check_git_tags_for_match.sh)
+- [Heading](#check_git_tags_for_match_alt.sh)
+- [Heading](#TODO)
+- [Heading](#Improvements)
+
 # check_git_tags_for_match.sh
 
 ## Description
