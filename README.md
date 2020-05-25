@@ -2,12 +2,14 @@
 Check all git tags for a match. Scripts and illustration.
 
 # Contents
-- [Heading](#check_git_tags_for_match.sh)
-- [Heading](#check_git_tags_for_match_alt.sh)
-- [Heading](#TODO)
-- [Heading](#Improvements)
+- [check-git-tags-for-match](#heck-git-tags-for-match)
+- [Contents](#contents)
+- [Main Script](#main-script)
+- [Alt Script](#alt-script)
+- [TODO](#todo)
+- [Improvements](#improvements)
 
-# check_git_tags_for_match.sh
+# Main Script
 
 ## Description
 This script can be used to check if a given git tag already exists in any git repository.
